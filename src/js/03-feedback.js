@@ -16,6 +16,13 @@ function onInputHandler(event) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(inputValues));
 }
 function onFormSubmit(event) {
+  if (
+    !feedbackFormEl.elements.email.value ||
+    !feedbackFormEl.elements.message.value
+  ) {
+    alert('All fields must be filled!');
+    return;
+  }
   event.preventDefault();
   console.log(inputValues);
   localStorage.removeItem(STORAGE_KEY);
